@@ -29,14 +29,14 @@ def main():
     """こうかとん"""
     kk_img = pg.image.load("ex02/fig/3.png")
     kk_img_tr=pg.transform.flip(kk_img,False,True)
-    kk_img1 = pg.transform.rotozoom(kk_img, 0, 2.0)
-    kk_img2 = pg.transform.rotozoom(kk_img,315, 2.0)
-    kk_img3 = pg.transform.rotozoom(kk_img_tr,-90 , 2.0)
-    kk_img4 = pg.transform.rotozoom(kk_img_tr,225 , 2.0)
-    kk_img5 = pg.transform.rotozoom(kk_img_tr,180 , 2.0)
-    kk_img6 = pg.transform.rotozoom(kk_img_tr,135, 2.0)
-    kk_img7 = pg.transform.rotozoom(kk_img_tr,-270, 2.0)
-    kk_img8 = pg.transform.rotozoom(kk_img,45, 2.0)
+    kk_img1 = pg.transform.rotozoom(kk_img, 0, 2.0)#0度のもの
+    kk_img2 = pg.transform.rotozoom(kk_img,315, 2.0)#315度のもの
+    kk_img3 = pg.transform.rotozoom(kk_img_tr,-90 , 2.0)#270度のもの
+    kk_img4 = pg.transform.rotozoom(kk_img_tr,225 , 2.0)#225度のもの
+    kk_img5 = pg.transform.rotozoom(kk_img_tr,180 , 2.0)#180度のもの
+    kk_img6 = pg.transform.rotozoom(kk_img_tr,135, 2.0)#135度のもの
+    kk_img7 = pg.transform.rotozoom(kk_img_tr,-270, 2.0)#90度のもの
+    kk_img8 = pg.transform.rotozoom(kk_img,45, 2.0)#45度のもの
     kk_dct = {(-5,0):kk_img1,(-5,-5) :kk_img2,(0,-5): kk_img3, (5,-5):kk_img4,(5,0): kk_img5, (5,5):kk_img6, (0,5):kk_img7,(-5,5): kk_img8 }
     kk_rct = kk_img.get_rect()
     kk_rct.center = (900, 400)  # 練習３：こうかとんの初期座標を設定する
@@ -79,7 +79,7 @@ def main():
             kk_rct.move_ip(-sum_mv[0], -sum_mv[1])
         
         """"ばくだん"""
-        bd_rct.move_ip(vx+0.00001*tmr, vy+0.00001*tmr)  # 練習２：爆弾を移動させる
+        bd_rct.move_ip(vx+0.001*tmr, vy+0.001*tmr)  # 練習２：爆弾を移動させる
         yoko,tate=check_bount(bd_rct)
         if not yoko:
             vx*= -1
